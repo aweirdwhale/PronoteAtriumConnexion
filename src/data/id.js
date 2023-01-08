@@ -17,17 +17,17 @@ function withId(obj, fields, extraData)
     };
 }
 
-//function checkDuplicates(objs)
-//{
-//    for (const obj of objs) {
-//       const duplicates = objs.filter(o => o.id === obj.id);
+function checkDuplicates(objs)
+{
+    for (const obj of objs) {
+       const duplicates = objs.filter(o => o.id === obj.id);
 
-//        if (duplicates.length > 1) {
-//            duplicates.forEach((d, i) => d.id = d.id.substring(0, d.id.length - 1) + i);
-//        }
-//    }
+        if (duplicates.length > 1) {
+            duplicates.forEach((d, i) => d.id = d.id.substring(0, d.id.length - 1) + i);
+        }
+    }
 
-//    return objs;
-//}
+    return objs;
+}
 
-module.exports = { withId }; //checkDuplicates
+module.exports = { withId, checkDuplicates }; //checkDuplicates

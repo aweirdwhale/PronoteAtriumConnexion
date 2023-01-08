@@ -1,5 +1,5 @@
 const { getPeriodBy } = require('../data/periods');
-const { withId, checkDuplicates } = require('../data/id');
+const { withId, checkDuplicates } = require('../data/id'); //checkDuplicates
 
 const getMarks = require('./pronote/marks');
 
