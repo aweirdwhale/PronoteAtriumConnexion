@@ -30,4 +30,4 @@ function withId(obj, fields, extraData)
 //    return objs;
 //}
 
-module.exports = { withId, checkDuplicates };
+module.exports = { withId }; //checkDuplicates

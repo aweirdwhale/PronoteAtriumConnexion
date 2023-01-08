@@ -1,5 +1,5 @@
 const { toPronoteWeek } = require('../data/dates');
-const { withId, checkDuplicates } = require('../data/id');
+const { withId } = require('../data/id'); //checkDuplicates
 
 const { getFilledDaysAndWeeks, getTimetable } = require('./pronote/timetable');
 
@@ -89,7 +89,7 @@ function getTimetableWeek(session, table) {
         result.push(withId(res, ['from', 'to', 'subject']));
     }
 
-    return checkDuplicates(result);
+    //return checkDuplicates(result);
 }
 
 module.exports = timetable;
