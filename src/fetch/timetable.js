@@ -1,5 +1,5 @@
 const { toPronoteWeek } = require('../data/dates');
-const { withId } = require('../data/id'); //checkDuplicates
+const { withId, checkDuplicates } = require('../data/id'); //checkDuplicates
 
 const { getFilledDaysAndWeeks, getTimetable } = require('./pronote/timetable');
 
@@ -50,7 +50,15 @@ function getTimetableWeek(session, table) {
 
     for (const lesson of table.lessons) {
         const from = lesson.date;
-        const to = new Date(from.getTime() + ((55 * 60000) / 3600000) * 3600000); //(lesson.duration / (session.params.ticksPerHour / 60) * 3600000)
+        let ld = 0
+        if (lesson.duration == 7200000){
+            ld = from.getTime() + ((110 * 60000) / 3600000) * 3600000
+        } else if (lesson.duration == 3600000){
+            ld = from.getTime() + ((55 * 60000) / 3600000) * 3600000
+        } else {
+            ld = lesson.duration
+        }
+        const to = new Date(ld); //(lesson.duration / (session.params.ticksPerHour / 60) * 3600000)
 
         const res = {
             from,
@@ -89,7 +97,7 @@ function getTimetableWeek(session, table) {
         result.push(withId(res, ['from', 'to', 'subject']));
     }
 
-    //return checkDuplicates(result);
+    return checkDuplicates(result);
 }
 
 module.exports = timetable;
