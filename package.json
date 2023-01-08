@@ -1,6 +1,6 @@
 {
-  "name": "pronoteapi-atriumfix",
-  "version": "4.0.7",
+  "name": "jdo-api-module",
+  "version": "1.0.0",
   "description": "Patch for atrium-pronote connexion based on Litarvan's pronote-api",
   "main": "index.js",
   "types": "index.d.ts",
